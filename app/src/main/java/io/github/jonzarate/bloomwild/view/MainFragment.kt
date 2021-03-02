@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.jonzarate.bloomwild.Injector
 import io.github.jonzarate.bloomwild.R
@@ -39,6 +40,7 @@ class MainFragment : Fragment() {
         with(binding.mainProducts){
             adapter = this@MainFragment.adapter
             layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
 

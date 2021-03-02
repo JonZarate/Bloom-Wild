@@ -4,8 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class ProductsResponse (
     @SerializedName("data")
-    private val data: Array<ProductInfo>
-){
-    val products: List<ProductAttributes>
-        get() = data.map { info -> info.attributes }
-}
+    val data: Array<ProductInfo>
+)

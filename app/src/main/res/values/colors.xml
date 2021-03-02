@@ -6,6 +6,7 @@
     <color name="brand_black">#222222</color>
     <color name="brand_green">#02857D</color>
     <color name="brand_yellow">#FFF8C5</color>
+    <color name="brand_yellow_dark">#cFc8a5</color>
 
     <color name="soft_green">#BDD4C2</color>
     <color name="soft_yellow">#FCF6EA</color>
