@@ -16,6 +16,8 @@ Unit tests
 
 ignored subscriptions and other prices
 
+scrollbars
+
 
 
 when tapping a product, scroll to item and show detail page
