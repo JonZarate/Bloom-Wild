@@ -15,3 +15,9 @@ Tablet design
 Unit tests
 
 ignored subscriptions and other prices
+
+
+
+
+
+IMAGENES MAS GRANDES

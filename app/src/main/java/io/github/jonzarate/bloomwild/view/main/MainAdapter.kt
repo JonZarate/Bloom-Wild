@@ -1,4 +1,4 @@
-package io.github.jonzarate.bloomwild.view
+package io.github.jonzarate.bloomwild.view.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.jonzarate.bloomwild.databinding.ViewholderProductBinding
 import io.github.jonzarate.bloomwild.model.data.ProductAttributes
 
-class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
+class MainAdapter(
+    private val listener: OnProductSelected
+) : RecyclerView.Adapter<MainViewHolder>(), MainViewHolder.OnProductClick {
+
+    interface OnProductSelected {
+        fun onProductSelected(position: Int)
+    }
 
     private val products = mutableListOf<ProductAttributes>()
 
@@ -18,10 +24,14 @@ class MainAdapter : RecyclerView.Adapter<MainViewHolder>() {
         }
     }
 
+    override fun onProductClick(position: Int) {
+        listener.onProductSelected(position)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ViewholderProductBinding.inflate(inflater, parent, false)
-        return MainViewHolder(binding)
+        return MainViewHolder(binding, this)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {

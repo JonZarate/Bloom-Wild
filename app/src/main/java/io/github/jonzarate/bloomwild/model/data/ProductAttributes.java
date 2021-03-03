@@ -6,6 +6,9 @@ public class ProductAttributes {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("collection_name")
+    private String collectionName;
+
     @SerializedName("currency")
     private String currency;
 
@@ -17,20 +20,15 @@ public class ProductAttributes {
     private ProductMedia[] media;
     private ProductMedia[] sanitisedMedia;
 
-    @SerializedName("rating_average")
-    private float ratingAverage;
+    private boolean isHighlighted;
 
-    @SerializedName("rating_count")
-    private float ratingCount;
-
-    @SerializedName("collection_name")
-    private String collectionName;
-
-
-    private String processedImageUrl;
 
     public String getName() {
         return name;
+    }
+
+    public String getCollectionName() {
+        return collectionName;
     }
 
     public String getCurrency() {
@@ -61,23 +59,11 @@ public class ProductAttributes {
         this.sanitisedMedia = sanitisedMedia;
     }
 
-    public float getRatingAverage() {
-        return ratingAverage;
+    public boolean isHighlighted() {
+        return isHighlighted;
     }
 
-    public float getRatingCount() {
-        return ratingCount;
-    }
-
-    public String getCollectionName() {
-        return collectionName;
-    }
-
-    public String getProcessedImageUrl() {
-        return processedImageUrl;
-    }
-
-    public void setProcessedImageUrl(String processedImageUrl) {
-        this.processedImageUrl = processedImageUrl;
+    public void setHighlighted(boolean highlighted) {
+        this.isHighlighted = highlighted;
     }
 }

@@ -1,4 +1,4 @@
-package io.github.jonzarate.bloomwild.view
+package io.github.jonzarate.bloomwild.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
