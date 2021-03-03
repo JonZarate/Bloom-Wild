@@ -28,7 +28,6 @@ class MainViewHolder(
                 R.color.soft_yellow
             else
                  0
-
         )
 
         with(binding){
@@ -36,7 +35,7 @@ class MainViewHolder(
             viewholderProductName.text = productAttributes.name
             viewholderProductPrice.text = productAttributes.sanitisedPrice
 
-            productAttributes.sanitisedMedia[0]?.url?.also { sanitisedUrl ->
+            productAttributes.sanitisedMedia[0]?.also { sanitisedUrl ->
                 Glide.with(itemView.context)
                     .load(sanitisedUrl)
                     .placeholder(R.drawable.ic_bloom_wild)

@@ -3,7 +3,6 @@ package io.github.jonzarate.bloomwild.model.repo
 import io.github.jonzarate.bloomwild.controller.ImageUrlProvider
 import io.github.jonzarate.bloomwild.controller.PriceFormatter
 import io.github.jonzarate.bloomwild.model.data.ProductAttributes
-import io.github.jonzarate.bloomwild.model.data.ProductMedia
 import io.github.jonzarate.bloomwild.model.net.BloomWildApi
 
 // Small phone pictures
@@ -17,6 +16,7 @@ const val PICTURE_LARGE_HEIGHT = 720
 const val PICTURE_FORMAT = "jpeg"
 
 class ProductRepository (
+    private val isTablet: Boolean,
     private val api: BloomWildApi,
     private val provider: ImageUrlProvider,
     private val formatter: PriceFormatter
@@ -25,19 +25,22 @@ class ProductRepository (
     suspend fun getProducts() : List<ProductAttributes> {
         return api.getProducts().data.map { productInfo ->
             productInfo.attributes.also { attrs ->
-                attrs.sanitisedMedia = sanitiseMedia(attrs)
                 attrs.sanitisedPrice = sanitisePrice(attrs)
+
+                val width = if (isTablet) PICTURE_LARGE_WIDTH else PICTURE_SMALL_WIDTH
+                val height = if (isTablet) PICTURE_LARGE_HEIGHT else PICTURE_SMALL_HEIGHT
+                attrs.sanitisedMedia = sanitiseMedia(attrs, width, height)
             }
         }
     }
 
-    private fun sanitiseMedia(attrs: ProductAttributes) : Array<ProductMedia> {
+    private fun sanitiseMedia(attrs: ProductAttributes, width: Int, height: Int) : Array<String> {
         return attrs.media.map { media ->
-            ProductMedia(provider.generateProcessedImageUrl(
-                PICTURE_SMALL_HEIGHT,
-                PICTURE_SMALL_WIDTH,
+            provider.generateProcessedImageUrl(
+                width,
+                height,
                 PICTURE_FORMAT,
-                media.url))
+                media.url)
         }.toTypedArray()
     }
 

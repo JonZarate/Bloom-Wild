@@ -22,7 +22,7 @@ class DetailAdapter : RecyclerView.Adapter<DetailViewHolder>() {
 
     override fun onBindViewHolder(holder: DetailViewHolder, position: Int) {
         product?.sanitisedMedia?.also {
-            holder.setProduct(it[position].url)
+            holder.setProduct(it[position])
         }
     }
 

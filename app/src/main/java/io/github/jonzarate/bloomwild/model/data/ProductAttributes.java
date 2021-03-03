@@ -18,7 +18,7 @@ public class ProductAttributes {
 
     @SerializedName("media")
     private ProductMedia[] media;
-    private ProductMedia[] sanitisedMedia;
+    private String[] sanitisedMedia;
 
     private boolean isHighlighted;
 
@@ -51,11 +51,11 @@ public class ProductAttributes {
         return media;
     }
 
-    public ProductMedia[] getSanitisedMedia() {
+    public String[] getSanitisedMedia() {
         return sanitisedMedia;
     }
 
-    public void setSanitisedMedia(ProductMedia[] sanitisedMedia) {
+    public void setSanitisedMedia(String[] sanitisedMedia) {
         this.sanitisedMedia = sanitisedMedia;
     }
 

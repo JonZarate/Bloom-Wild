@@ -59,8 +59,10 @@ class MainFragment : Fragment(), MainAdapter.OnProductSelected {
             }
         })
 
-        viewmodel.onHighlightedProductChanged.observe(viewLifecycleOwner, {
-            smoothSnapToPosition(it)
+        viewmodel.onHighlightedProductChanged.observe(viewLifecycleOwner, { pair ->
+            if (pair.second)
+                smoothSnapToPosition(pair.first)
+
             expandBottomSheet()
             adapter.notifyDataSetChanged()
         })

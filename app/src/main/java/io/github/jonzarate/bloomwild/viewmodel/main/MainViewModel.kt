@@ -15,7 +15,7 @@ class MainViewModel(
 ) : ViewModel() {
 
     val products = MutableLiveData<List<ProductAttributes>>()
-    val onHighlightedProductChanged = SingleLiveEvent<Int>()
+    val onHighlightedProductChanged = SingleLiveEvent<Pair<Int, Boolean>>()
 
     var lastHighlatedItem: ProductAttributes? = null
 
@@ -35,6 +35,6 @@ class MainViewModel(
             app.selectedItem.postValue(it)
         }
 
-        onHighlightedProductChanged.postValue(position)
+        onHighlightedProductChanged.postValue(Pair(position, !app.isTablet))
     }
 }
