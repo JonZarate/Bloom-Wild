@@ -1,7 +1,7 @@
 package io.github.jonzarate.bloomwild.view.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import io.github.jonzarate.bloomwild.R
 
 class MainActivity : AppCompatActivity() {
