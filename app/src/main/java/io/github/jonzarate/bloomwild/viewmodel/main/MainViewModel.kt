@@ -17,7 +17,7 @@ class MainViewModel(
     val products = MutableLiveData<List<ProductAttributes>>()
     val onHighlightedProductChanged = SingleLiveEvent<Pair<Int, Boolean>>()
 
-    var lastHighlatedItem: ProductAttributes? = null
+    var lastHighlightedItem: ProductAttributes? = null
 
     init {
         viewModelScope.launch {
@@ -26,12 +26,12 @@ class MainViewModel(
     }
 
     fun onProductSelected(position: Int) {
-        lastHighlatedItem?.isHighlighted = false
-        lastHighlatedItem = null
+        lastHighlightedItem?.isHighlighted = false
+        lastHighlightedItem = null
 
         products.value?.get(position)?.also {
             it.isHighlighted = true
-            lastHighlatedItem = it
+            lastHighlightedItem = it
             app.selectedItem.postValue(it)
         }
 

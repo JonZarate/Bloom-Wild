@@ -35,7 +35,7 @@ class MainViewHolder(
             viewholderProductName.text = productAttributes.name
             viewholderProductPrice.text = productAttributes.sanitisedPrice
 
-            productAttributes.sanitisedMedia[0]?.also { sanitisedUrl ->
+            productAttributes.sanitisedMedia?.get(0).also { sanitisedUrl ->
                 Glide.with(itemView.context)
                     .load(sanitisedUrl)
                     .placeholder(R.drawable.ic_bloom_wild)
