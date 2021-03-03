@@ -2,7 +2,7 @@
 
 
 
-![Phone screenshot](images/phone.png) ![Phone screenshot](images/phone_selected.png) ![Phone screenshot](images/phone_selected_2.png) 
+![Phone screenshot](images/phone.png)   ![Phone screenshot](images/phone_selected.png)   ![Phone screenshot](images/phone_selected_2.png) 
 
 ![Phone screenshot](images/tablet.png)
 
@@ -10,7 +10,7 @@
 
 Different layouts have been designed to support *portrait smartphones* and *landscape tablets*. The pictures displayed in tablets are of bigger resolution (`720` vs `360`).
 
-This project uses Kotlin & Java. It's pieced together with MMVM & LiveData. `View`s are handled with View Binding.
+This project uses Kotlin & some Java. It's pieced together with MMVM & LiveData. `View`s are handled with View Binding.
 
 Data is managed through Repository Pattern, which allows to sanitise the data coming from the API and eases displaying it. In this case, the price and pictures' URLs were adjusted. 
 
@@ -21,6 +21,8 @@ Dependencies are Injected manually without any framework.
 The App consists of 2 `Fragments` displayed together: *Main* (the list) & *Detail* (the picture carousel). These 2 pages are communicated so that the *Detail* page can show the product selected by the user. On phones, the *Detail* pops up from the bottom, while in tablets it's just displayed on the side. 
 
 The app uses the Navigation component because I was planning on launching the *Detail* page separately. I eventually used another approach but I left it there as it loads the `MainFragment` into the `MainActivity`.
+
+Layouts were designed with all sorts of `ViewGroup`s: `ConstraintLayout`, `CoordinatorLayout`, `CardView` among others.
 
 Unit tests are also provided.
 
